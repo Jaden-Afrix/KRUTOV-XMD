@@ -1,0 +1,50 @@
+{
+  "name": "KRUTOV-XMD",
+  "description": "Multi-feature WhatsApp AI Bot by Jaden Afrix",
+  "keywords": [
+    "whatsapp-ai",
+    "afrix-bot",
+    "krutov-xmd",
+    "jadenafrix",
+    "whatsapp-multi"
+  ],
+  "repository": "https://github.com/Jaden-Afrix/KRUTOV-XMD",
+  "stack": "container",
+  "env": {
+    "SESSION_ID": {
+      "description": "Generated session ID after QR code scan",
+      "required": false
+    },
+    "OWNER_NUMBER": {
+      "description": "Your full WhatsApp contact (e.g., 263784812740)",
+      "required": false
+    },
+    "PREFIX": {
+      "description": "Command prefix for KRUTOV-XMD",
+      "value": ".",
+      "required": false
+    }
+  },
+  "formation": {
+    "worker": {
+      "quantity": 1,
+      "size": "basic"
+    }
+  },
+  "buildpacks": [
+    {
+      "url": "heroku/nodejs"
+    },
+    {
+      "url": "https://github.com/jonathanong/heroku-buildpack-ffmpeg-latest"
+    },
+    {
+      "url": "https://github.com/DuckyTeam/heroku-buildpack-imagemagick"
+    }
+  ],
+  "addons": [
+    {
+      "plan": "heroku-postgresql"
+    }
+  ]
+}
